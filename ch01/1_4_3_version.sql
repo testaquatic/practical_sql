@@ -1,1 +1,3 @@
+BEGIN TRANSACTION;
 SELECT version();
+COMMIT;
