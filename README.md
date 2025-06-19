@@ -4,4 +4,4 @@
 - 책 정보
   [https://product.kyobobook.co.kr/detail/S000200642129](<https://product.kyobobook.co.kr/detail/S000200642129>)
 
-코딩에 대한 책을 읽다보니 SQL에 대해서 언급이 많이 나와서 구입했다.
+코딩에 대한 책을 읽다보니 SQL에 대한 이야기가 많이 나와서 구입했다.  
