@@ -1,0 +1,5 @@
+BEGIN TRANSACTION;
+
+TABlE teachers;
+
+COMMIT;
