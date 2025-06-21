@@ -1,0 +1,1 @@
+SELECT CAST(char_column AS INTEGER) FROM char_data_types;
