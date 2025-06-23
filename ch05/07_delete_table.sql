@@ -1,0 +1,3 @@
+BEGIN TRANSACTION;
+DELETE FROM supervisor_salaries;
+COMMIT;
