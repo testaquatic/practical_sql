@@ -1,0 +1,2 @@
+SELECT PERCENTILE_CONT(ARRAY[0.25, 0.5, 0.75]) WITHIN GROUP (ORDER BY pop_est_2019) AS quartiles
+FROM us_counties_pop_est_2019;

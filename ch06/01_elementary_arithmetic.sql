@@ -1,0 +1,3 @@
+SELECT 2 + 2;
+SELECT 9 - 2;
+SELECT 3 * 4;
