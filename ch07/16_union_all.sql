@@ -1,0 +1,4 @@
+SELECT * FROM district_2020
+UNION ALL
+SELECT * FROM district_2035
+ORDER BY id;
