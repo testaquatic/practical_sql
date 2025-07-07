@@ -1,0 +1,2 @@
+SELECT corr(median_hh_income, pct_masters_higher) masters_income_r
+FROM acs_2014_2018_stats;
