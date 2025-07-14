@@ -1,0 +1,4 @@
+SELECT '2100-01-01 00:00:00 EST'::TIMESTAMPTZ AT TIME ZONE 'America/New_York' AS NewYork,
+       '2100-01-01 00:00:00 EST'::TIMESTAMPTZ AT TIME ZONE 'Europe/London' AS London,
+       '2100-01-01 00:00:00 EST'::TIMESTAMPTZ AT TIME ZONE 'Europe/Moscow' AS Moscow,
+       '2100-01-01 00:00:00 EST'::TIMESTAMPTZ AT TIME ZONE 'Australia/Melbourne' AS Melbourne;
