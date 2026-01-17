@@ -68,17 +68,26 @@ WHERE
 ORDER BY
     speech_date;
 
-SELECT president,
-       speech_date,
-       ts_headline(speech_text, to_tsquery('english', 'military <-> defense'), 'StartSel = <, StopSel = >, MinWords = 5, MaxWords = 7, MaxFragments = 1')
-FROM president_speeches
-WHERE search_speech_text @@ to_tsquery('english', 'military <-> defense')
-ORDER BY speech_date;
+SELECT
+    president,
+    speech_date,
+    TS_HEADLINE(speech_text, TO_TSQUERY('english', 'military <-> defense'),
+                'StartSel = <, StopSel = >, MinWords = 5, MaxWords = 7, MaxFragments = 1')
+FROM
+    president_speeches
+WHERE
+    search_speech_text @@ TO_TSQUERY('english', 'military <-> defense')
+ORDER BY
+    speech_date;
 
-SELECT president,
-       speech_date,
-       ts_rank(search_speech_text, to_tsquery('english', 'war & security & threat & enemy'), 2)::NUMERIC AS score
-FROM president_speeches
-WHERE search_speech_text @@ to_tsquery('english', 'war & security & threat & enemy')
-ORDER BY score DESC
+SELECT
+    president,
+    speech_date,
+    TS_RANK(search_speech_text, TO_TSQUERY('english', 'war & security & threat & enemy'), 2)::NUMERIC AS score
+FROM
+    president_speeches
+WHERE
+    search_speech_text @@ TO_TSQUERY('english', 'war & security & threat & enemy')
+ORDER BY
+    score DESC
 LIMIT 5;
