@@ -1,28 +1,31 @@
 START TRANSACTION;
 CREATE TABLE vacuum_test (
-  integer_column INTEGER
+    integer_column INTEGER
 );
 COMMIT;
 
-SELECT pg_size_pretty(pg_total_relation_size('vacuum_test'));
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('vacuum_test'));
 
-START TRANSACTION ;
+START TRANSACTION;
 
 INSERT INTO vacuum_test
-SELECT * FROM generate_series(1, 500_000);
+SELECT *
+FROM
+    GENERATE_SERIES(1, 500_000);
 
-COMMIT ;
+COMMIT;
 
-SELECT pg_size_pretty(pg_total_relation_size('vacuum_test'));
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('vacuum_test'));
 
-START TRANSACTION ;
+START TRANSACTION;
 
 UPDATE vacuum_test
-SET integer_column = integer_column + 1;
+SET
+    integer_column = integer_column + 1;
 
-COMMIT ;
+COMMIT;
 
-SELECT pg_size_pretty(pg_total_relation_size('vacuum_test'));
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('vacuum_test'));
 
 SELECT
     relname,
@@ -30,10 +33,12 @@ SELECT
     last_autovacuum,
     vacuum_count,
     autovacuum_count
-    FROM pg_stat_all_tables
-WHERE relname = 'vacuum_test';
+FROM
+    pg_stat_all_tables
+WHERE
+    relname = 'vacuum_test';
 
-SELECT  pg_size_pretty(pg_total_relation_size('vacuum_test'));
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('vacuum_test'));
 
 VACUUM vacuum_test;
 
@@ -43,11 +48,13 @@ SELECT
     last_autovacuum,
     vacuum_count,
     autovacuum_count
-    FROM pg_stat_all_tables
-WHERE relname = 'vacuum_test';
+FROM
+    pg_stat_all_tables
+WHERE
+    relname = 'vacuum_test';
 
 VACUUM FULL vacuum_test;
 
-SELECT pg_size_pretty(pg_total_relation_size('vacuum_test'));
+SELECT PG_SIZE_PRETTY(PG_TOTAL_RELATION_SIZE('vacuum_test'));
 
-SHOW CONFIG_FILE ;
+SHOW CONFIG_FILE;
