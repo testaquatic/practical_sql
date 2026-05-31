@@ -12,7 +12,7 @@ VALUES (
 );
 
 ---- psql
-\copy char_data_types TO './ch04/data/typetest.txt' WITH (FORMAT CSV, HEADER, DELIMITER '|');
+\copy char_data_types TO './data/typetest.txt' WITH (FORMAT CSV, HEADER, DELIMITER '|');
 ----
 
 CREATE TABLE number_data_types (

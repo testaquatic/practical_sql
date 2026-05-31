@@ -102,7 +102,7 @@ COMMIT;
 
 -------- psql start
 START TRANSACTION;
-\copy supervisor_salaries (town, supervisor, salary) FROM './ch05/data/supervisor_salaries.csv' WITH (FORMAT CSV, HEADER) WHERE town = 'New Brillig';
+\copy supervisor_salaries (town, supervisor, salary) FROM './data/supervisor_salaries.csv' WITH (FORMAT CSV, HEADER) WHERE town = 'New Brillig';
 SELECT *
 FROM
     supervisor_salaries;
@@ -120,7 +120,7 @@ START TRANSACTION;
 CREATE TEMPORARY TABLE supervisor_salaries_temp (
     LIKE supervisor_salaries INCLUDING ALL
 );
-\copy supervisor_salaries_temp (town, supervisor, salary) FROM './ch05/data/supervisor_salaries.csv' WITH (FORMAT CSV, HEADER);
+\copy supervisor_salaries_temp (town, supervisor, salary) FROM './data/supervisor_salaries.csv' WITH (FORMAT CSV, HEADER);
 INSERT INTO supervisor_salaries (
     town, county, supervisor, salary
 )
@@ -138,7 +138,7 @@ COMMIT;
 SELECT * FROM supervisor_salaries ORDER BY id LIMIT 2;
 
 -------- psql start
-\copy us_counties_pop_est_2019 TO './ch05/data/us_counties_export.txt' WITH (FORMAT CSV, HEADER, DELIMITER '|');
-\copy us_counties_pop_est_2019 (county_name, internal_point_lat, internal_point_lon) TO './ch05/data/us_counties_latlon_export.txt' WITH (FORMAT CSV, HEADER, DELIMITER '|');
-\copy (SELECT county_name, state_name FROM us_counties_pop_est_2019 WHERE county_name ILIKE '%mill%') TO './ch05/data/us_counties_mill_export.csv' WITH (FORMAT CSV, HEADER);
+\copy us_counties_pop_est_2019 TO './data/us_counties_export.txt' WITH (FORMAT CSV, HEADER, DELIMITER '|');
+\copy us_counties_pop_est_2019 (county_name, internal_point_lat, internal_point_lon) TO './data/us_counties_latlon_export.txt' WITH (FORMAT CSV, HEADER, DELIMITER '|');
+\copy (SELECT county_name, state_name FROM us_counties_pop_est_2019 WHERE county_name ILIKE '%mill%') TO './data/us_counties_mill_export.csv' WITH (FORMAT CSV, HEADER);
 -------- psql end
