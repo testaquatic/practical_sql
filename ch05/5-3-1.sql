@@ -135,7 +135,12 @@ DROP TABLE supervisor_salaries_temp;
 COMMIT;
 -------- psql end
 
-SELECT * FROM supervisor_salaries ORDER BY id LIMIT 2;
+SELECT *
+FROM
+    supervisor_salaries
+ORDER BY
+    id
+LIMIT 2;
 
 -------- psql start
 \copy us_counties_pop_est_2019 TO './data/us_counties_export.txt' WITH (FORMAT CSV, HEADER, DELIMITER '|');

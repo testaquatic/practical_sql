@@ -102,8 +102,8 @@ FROM
 
 CREATE TABLE licenses (
     license_id TEXT,
-    first_name  TEXT,
-    last_name   TEXT,
+    first_name TEXT,
+    last_name  TEXT,
     CONSTRAINT licenses_key PRIMARY KEY (license_id)
 );
 
@@ -125,11 +125,16 @@ INSERT INTO registrations (
     registration_id, registration_date, license_id
 )
 VALUES (
-    'A203391', '2022-03-17', 'T229901');
+    'A203391', '2022-03-17', 'T229901'
+);
 
 ---------------------- 오류 발생
-INSERT INTO registrations (registration_id, registration_date, license_id)
-VALUES ('A75772', '2022-03-17', 'T000001');
+INSERT INTO registrations (
+    registration_id, registration_date, license_id
+)
+VALUES (
+    'A75772', '2022-03-17', 'T000001'
+);
 ----------------------
 
 CREATE TABLE unique_constraint_example (
@@ -141,25 +146,41 @@ CREATE TABLE unique_constraint_example (
     CONSTRAINT email_unique UNIQUE (email)
 );
 
-INSERT INTO unique_constraint_example (first_name, last_name, email)
-VALUES ('Samantha', 'Lee', 'slee@example.org');
+INSERT INTO unique_constraint_example (
+    first_name, last_name, email
+)
+VALUES (
+    'Samantha', 'Lee', 'slee@example.org'
+);
 
-INSERT INTO unique_constraint_example (first_name, last_name, email)
-VALUES ('Betty', 'Diaz', 'bdiaz@example.org');
+INSERT INTO unique_constraint_example (
+    first_name, last_name, email
+)
+VALUES (
+    'Betty', 'Diaz', 'bdiaz@example.org'
+);
 
 ------------------------ 오류 발생
-INSERT INTO unique_constraint_example (first_name, last_name, email)
-VALUES ('Sasha', 'Lee', 'slee@example.org');
+INSERT INTO unique_constraint_example (
+    first_name, last_name, email
+)
+VALUES (
+    'Sasha', 'Lee', 'slee@example.org'
+);
 ------------------------
 
 CREATE TABLE not_null_example (
     student_id BIGINT GENERATED ALWAYS AS IDENTITY,
     first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL,
+    last_name  TEXT NOT NULL,
     CONSTRAINT student_id_key PRIMARY KEY (student_id)
 );
 
-ALTER TABLE not_null_example DROP CONSTRAINT student_id_key;
-ALTER TABLE not_null_example ADD CONSTRAINT student_id_key PRIMARY KEY (student_id);
-ALTER TABLE not_null_example ALTER COLUMN first_name DROP NOT NULL ;
-ALTER TABLE not_null_example ALTER COLUMN first_name SET NOT NULL ;
+ALTER TABLE not_null_example
+    DROP CONSTRAINT student_id_key;
+ALTER TABLE not_null_example
+    ADD CONSTRAINT student_id_key PRIMARY KEY (student_id);
+ALTER TABLE not_null_example
+    ALTER COLUMN first_name DROP NOT NULL;
+ALTER TABLE not_null_example
+    ALTER COLUMN first_name SET NOT NULL;
