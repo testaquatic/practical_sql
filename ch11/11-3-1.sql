@@ -63,4 +63,5 @@ SELECT
           0) AS twelve_month_avg
 FROM
     us_exports
-ORDER BY year, month;
+ORDER BY
+    year, month;
