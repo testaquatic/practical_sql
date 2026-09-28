@@ -18,5 +18,5 @@ docker run -d \
  -e POSTGRES_PASSWORD=postgres \
  -e POSTGRES_DB=analysis \
  -v practical-sql-db-data:/var/lib/postgresql \
- postgis/postgis:18-master
+ postgis/postgis:18-3.6
 ```
