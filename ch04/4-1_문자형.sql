@@ -12,5 +12,5 @@ VALUES ('abc', 'abc', 'abc'),
        ('defghi', 'defghi', 'defghi');
 
 -- psql
--- \copy playground.char_data_types TO 'typetest.txt'
--- WITH (FORMAT CSV, HEADER, DELIMITER '|');
+COPY playground.char_data_types TO 'typetest.txt'
+    WITH (FORMAT CSV, HEADER, DELIMITER '|');
