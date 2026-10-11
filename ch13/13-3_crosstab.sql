@@ -131,3 +131,5 @@ FROM crosstab('SELECT flavor, office, count(*)
               ORDER BY flavor', 'SELECT office FROM playground.ice_cream_survey
 GROUP BY office
 ORDER BY office') AS (office TEXT, Downtown INTEGER, Midtown INTEGER, Uptown INTEGER);
+
+
