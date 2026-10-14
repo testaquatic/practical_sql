@@ -110,7 +110,7 @@ FROM playground.train_rides;
 
 SELECT tpep_dropoff_datetime - tpep_pickup_datetime trip_time
 FROM new_york.nyc_yellow_taxi_trips
-ORDER BY trip_time ASC;
+ORDER BY trip_time;
 
 SELECT new_york_time.ny AT TIME ZONE 'America/New_York'    As new_york,
        new_york_time.ny AT TIME ZONE 'Europe/London'       as london,
